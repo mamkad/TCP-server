@@ -22,11 +22,19 @@ public:
 		   string const& logfilen, 
 		   function<uint16_t(uint16_t)> const& encrypt_func);
 	~server();
+public:
+	server(server&)  = delete;
+	server(server&&) = delete;
+	server& operator = (server&)  = delete;
+	server& operator = (server&&) = delete;
 private:
 	void set_listen(sockaddr_in& adrs, int fd);
 private:
-	int accept(int fd);
+	int accept_connection(int fd);
 	void listen_codeport();
+	void listen_dataport();
+private:
+	void savetolog(uint16_t id, uint16_t code, char* buff, uint64_t bsize);
 public:
 	int execute();
 };
