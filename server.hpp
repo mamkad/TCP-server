@@ -30,11 +30,15 @@ public:
 private:
 	void set_listen(sockaddr_in& adrs, int fd);
 private:
-	int accept_connection(int fd);
+	int  accept_connection(int fd);
+	void close_connection (int fd);
+private:	
 	void listen_codeport();
 	void listen_dataport();
 private:
 	void savetolog(uint16_t id, uint16_t code, char* buff, uint64_t bsize);
+private:
+	void check_code(uint16_t id, uint16_t code);
 public:
 	int execute();
 };

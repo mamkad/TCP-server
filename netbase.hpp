@@ -5,6 +5,7 @@
 #include <functional>
 #include <memory>
 #include <string>
+#include <exception>
 
 using std::cin;
 using std::cout;
@@ -14,6 +15,9 @@ using std::function;
 using std::shared_ptr;
 using std::make_shared;
 using std::string;
+
+using std::logic_error;
+using std::exception;
 
 #include <unistd.h>     // read/write
 #include <netinet/in.h> // struct sockaddr_in
